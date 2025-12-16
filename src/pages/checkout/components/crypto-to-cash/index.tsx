@@ -76,7 +76,7 @@ const CryptoToCash = () => {
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           <div className="space-y-2">
             <div className="flex flex-col gap-3 border border-[#E0E0E0] rounded-[30px] p-[24px]">
-              <p className='text-[#828282'>You pay</p>
+              <p className="text-[#828282">You pay</p>
               <div className="flex justify-between items-center">
                 <FormField
                   control={form.control}
@@ -87,12 +87,11 @@ const CryptoToCash = () => {
                         <Input
                           type="number"
                           value={field.value}
-                          
-                          onChange={(e) =>
-                            field.onChange(e.target.valueAsNumber)
-    //                         field.onChange(
-    //   e.target.value === "" ? 0 : Number(e.target.value)
-    // )
+                          onChange={
+                            (e) => field.onChange(e.target.valueAsNumber)
+                            //                         field.onChange(
+                            //   e.target.value === "" ? 0 : Number(e.target.value)
+                            // )
                           }
                           placeholder="0.00"
                           className={cn(
@@ -133,7 +132,7 @@ const CryptoToCash = () => {
 
           <div className="space-y-2">
             <div className="flex flex-col gap-3 border border-[#E0E0E0] rounded-[30px] p-[24px]">
-              <p className='text-[#828282]'>You receive</p>
+              <p className="text-[#828282]">You receive</p>
               <div className="flex justify-between items-center">
                 <FormField
                   control={form.control}
@@ -142,7 +141,7 @@ const CryptoToCash = () => {
                     <FormItem className="flex-1">
                       <FormControl>
                         <Input
-                          value={numberWithCommas(receiveAmount || '0.00')}
+                          value={numberWithCommas(receiveAmount || "0.00")}
                           // value={
                           //   Number.isFinite(receiveAmount)
                           //     ? receiveAmount.toLocaleString(undefined, {
@@ -166,6 +165,7 @@ const CryptoToCash = () => {
                     <FormItem>
                       <FormControl>
                         <SearchDropdown
+                          search={false}
                           options={fiatOptions as any}
                           value={receiveCurrency}
                           placeholder="Select currency"
@@ -175,6 +175,7 @@ const CryptoToCash = () => {
                               shouldDirty: true,
                             })
                           }
+                          className="w-[150px] p-1"
                         />
                       </FormControl>
                       <FormMessage />
@@ -191,7 +192,7 @@ const CryptoToCash = () => {
               name="payFrom"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className='text-primary'>Pay from</FormLabel>
+                  <FormLabel className="text-primary">Pay from</FormLabel>
                   <FormControl>
                     <SelectDropdown
                       options={payFromOptions}
@@ -210,7 +211,7 @@ const CryptoToCash = () => {
               name="payTo"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className='text-primary'>Pay to</FormLabel>
+                  <FormLabel className="text-primary">Pay to</FormLabel>
                   <FormControl>
                     <SelectDropdown
                       options={payToOptions}

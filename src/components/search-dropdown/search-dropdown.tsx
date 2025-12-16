@@ -6,10 +6,13 @@ import { Button } from '../ui/button';
 import { ChevronDown } from 'lucide-react';
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '../ui/command';
 import { ReactSVG } from 'react-svg';
+import { cn } from '@/lib/utils';
 
 interface SearchDropdownProps {
   options: TokenOption[];
   value?: string;
+  search?: boolean;
+  className?: string;
   placeholder?: string;
   onChange: (value: string) => void;
 }
@@ -17,8 +20,10 @@ interface SearchDropdownProps {
 const SearchDropdown = ({
   options,
   value,
+  search = true,
   placeholder = "Select token",
   onChange,
+  className,
 }: SearchDropdownProps) => {
   const [open, setOpen] = useState<boolean>(false);
   const selected = options.find((o) => o.value === value);
@@ -38,11 +43,13 @@ const SearchDropdown = ({
           <ChevronDown className="h-6 w-7 [&>svg]:text-primary" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent align='end' className="w-[270px] py-[16px] px-[12px] rounded-[20px] border border-[#E0E0E0]">
+      <PopoverContent align='end' className={cn("w-[270px] py-[16px] px-[12px] rounded-[20px] border border-[#E0E0E0]", className)}>
         <Command>
-          <div className="h-[44px] w-[240px] rounded-[20px] border border-[#E0E0E0]">
-            <CommandInput placeholder="Search" />
-          </div>
+          {search && (
+            <div className="h-[44px] w-[240px] rounded-[20px] border border-[#E0E0E0]">
+              <CommandInput placeholder="Search" />
+            </div>
+          )}
           <CommandList>
             <CommandEmpty>No option found.</CommandEmpty>
             <CommandGroup>

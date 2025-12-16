@@ -1,6 +1,7 @@
 import BNB from './bnb.icon.svg';
 import ETH from './eth.icon.svg';
 import TON from './ton.icon.svg';
+import NGN from './ngn.icon.svg';
 import CELO from './celo.icon.svg';
 import Others from './wallet.icon.svg';
 import Rainbow from './rainbow.icon.svg';
@@ -11,6 +12,7 @@ import WalletConnect from './wallet-connect.icon.svg';
 export const icons = {
   eth: ETH,
   bnb: BNB,
+  ngn: NGN,
   ton: TON,
   celo: CELO,
   others: Others,

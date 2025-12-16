@@ -27,7 +27,7 @@ export const fiatOptions = [
   {
     label: "NGN",
     value: "ngn",
-    // No icon available in assets; dropdown supports icon-less options
+    icon: icons.ngn,
   },
 ];
 
