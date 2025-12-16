@@ -44,5 +44,5 @@ export const payFromOptions = [
 
 export const payToOptions = [
   { label: "Bank Transfer", value: "bank", icon: icons.others },
-  { label: "Mobile Money", value: "momo", icon: icons.others },
+  // { label: "Mobile Money", value: "momo", icon: icons.others },
 ];
