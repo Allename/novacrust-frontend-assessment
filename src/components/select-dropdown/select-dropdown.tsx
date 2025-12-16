@@ -17,17 +17,17 @@ const SelectDropdown = ({
 }: SelectDropdownProps) => {
   return (
     <Select value={value} onValueChange={onChange}>
-      <SelectTrigger className="h-[60px] rounded-[30px] px-6 [&>svg]:text-primary">
+      <SelectTrigger className="h-[60px] rounded-[30px] px-6 [&>svg]:text-primary w-full">
         <SelectValue placeholder={placeholder} />
       </SelectTrigger>
 
-      <SelectContent align='center' className="rounded-[20px] py-[16px] px-[12px]">
+      <SelectContent align='center' className="w-[calc(100vw-2rem)] sm:w-auto sm:min-w-[18rem] rounded-[20px] py-[16px] px-[12px] sm:px-8">
         {options.map((option) => (
           <SelectItem
             key={option.value}
             value={option.value}
             disabled={option.disabled}
-            className="p-[12px] rounded-[12px] cursor-pointer"
+            className="p-[12px] sm:px-[18px] rounded-[12px] cursor-pointer"
           >
             <div className="flex items-center gap-3">
               <ReactSVG src={option.icon} />

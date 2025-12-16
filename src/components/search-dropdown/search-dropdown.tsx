@@ -43,10 +43,16 @@ const SearchDropdown = ({
           <ChevronDown className="h-6 w-7 [&>svg]:text-primary" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent align='end' className={cn("w-[270px] py-[16px] px-[12px] rounded-[20px] border border-[#E0E0E0]", className)}>
+      <PopoverContent
+        align="end"
+        className={cn(
+          "w-[180px] md:w-[270px] py-[16px] px-[12px] rounded-[20px] border border-[#E0E0E0]",
+          className
+        )}
+      >
         <Command>
           {search && (
-            <div className="h-[44px] w-[240px] rounded-[20px] border border-[#E0E0E0]">
+            <div className="h-[44px] w-[150px] md:w-[270px] rounded-[20px] border border-[#E0E0E0]">
               <CommandInput placeholder="Search" />
             </div>
           )}

@@ -79,16 +79,16 @@ const BankTransfer = () => {
 
   return (
     <main className="min-h-screen flex items-center justify-center">
-      <div className="max-w-[640px] w-full space-y-8 rounded-[30px] border py-8 px-14">
+      <div className="max-w-[640px] w-full space-y-8 rounded-[30px] border py-8 px-4 md:px-14">
         <div className="max-w-[521px] space-y-8">
           <div className="flex justify-between">
             <BackButton />
-            <p className='text-primary text-[20px]'>Recipient details</p>
+            <p className="text-primary text-[20px]">Recipient details</p>
             <p></p>
           </div>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-              <div className='flex flex-col gap-3'>
+              <div className="flex flex-col gap-3">
                 <FormField
                   control={form.control}
                   name="bank"
@@ -113,7 +113,9 @@ const BankTransfer = () => {
                   name="accountNumber"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-primary">Account number</FormLabel>
+                      <FormLabel className="text-primary">
+                        Account number
+                      </FormLabel>
                       <FormControl>
                         <Input
                           {...field}
@@ -122,8 +124,10 @@ const BankTransfer = () => {
                           placeholder="Enter your account number"
                           className="h-[60px] rounded-[30px] px-6"
                           onChange={(e) => {
-                            const raw = e.target.value.replace(/\D/g, '').slice(0, 10)
-                            field.onChange(raw)
+                            const raw = e.target.value
+                              .replace(/\D/g, "")
+                              .slice(0, 10);
+                            field.onChange(raw);
                           }}
                         />
                       </FormControl>
@@ -132,15 +136,19 @@ const BankTransfer = () => {
                   )}
                 />
 
-                <div className='flex flex-col gap-2 mb-[30px]'>
+                <div className="flex flex-col gap-2 mb-[30px]">
                   <p className="text-primary">Account name</p>
                   <div className="h-[60px] rounded-[30px] px-6 flex items-center bg-[#F2F2F2] text-primary font-semibold">
-                    {resolving ? 'Resolving…' : accountName || ''}
+                    {resolving ? "Resolving…" : accountName || ""}
                   </div>
                 </div>
               </div>
 
-              <Button type="submit" disabled={!accountName} className="w-full h-[60px] rounded-[30px] text-lg bg-primary">
+              <Button
+                type="submit"
+                disabled={!accountName}
+                className="w-full h-[60px] rounded-[30px] text-lg bg-primary"
+              >
                 Next
               </Button>
             </form>
@@ -148,7 +156,7 @@ const BankTransfer = () => {
         </div>
       </div>
     </main>
-  )
+  );
 }
 
 export default BankTransfer
