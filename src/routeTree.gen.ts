@@ -10,53 +10,43 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as UsersIndexRouteImport } from './routes/users/index'
-import { Route as UsersUserIdPostsRouteImport } from './routes/users/$userId.posts'
+import { Route as BankTransferIndexRouteImport } from './routes/bank-transfer/index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const UsersIndexRoute = UsersIndexRouteImport.update({
-  id: '/users/',
-  path: '/users/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const UsersUserIdPostsRoute = UsersUserIdPostsRouteImport.update({
-  id: '/users/$userId/posts',
-  path: '/users/$userId/posts',
+const BankTransferIndexRoute = BankTransferIndexRouteImport.update({
+  id: '/bank-transfer/',
+  path: '/bank-transfer/',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/users': typeof UsersIndexRoute
-  '/users/$userId/posts': typeof UsersUserIdPostsRoute
+  '/bank-transfer': typeof BankTransferIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/users': typeof UsersIndexRoute
-  '/users/$userId/posts': typeof UsersUserIdPostsRoute
+  '/bank-transfer': typeof BankTransferIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/users/': typeof UsersIndexRoute
-  '/users/$userId/posts': typeof UsersUserIdPostsRoute
+  '/bank-transfer/': typeof BankTransferIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/users' | '/users/$userId/posts'
+  fullPaths: '/' | '/bank-transfer'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/users' | '/users/$userId/posts'
-  id: '__root__' | '/' | '/users/' | '/users/$userId/posts'
+  to: '/' | '/bank-transfer'
+  id: '__root__' | '/' | '/bank-transfer/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  UsersIndexRoute: typeof UsersIndexRoute
-  UsersUserIdPostsRoute: typeof UsersUserIdPostsRoute
+  BankTransferIndexRoute: typeof BankTransferIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -68,18 +58,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/users/': {
-      id: '/users/'
-      path: '/users'
-      fullPath: '/users'
-      preLoaderRoute: typeof UsersIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/users/$userId/posts': {
-      id: '/users/$userId/posts'
-      path: '/users/$userId/posts'
-      fullPath: '/users/$userId/posts'
-      preLoaderRoute: typeof UsersUserIdPostsRouteImport
+    '/bank-transfer/': {
+      id: '/bank-transfer/'
+      path: '/bank-transfer'
+      fullPath: '/bank-transfer'
+      preLoaderRoute: typeof BankTransferIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -87,8 +70,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  UsersIndexRoute: UsersIndexRoute,
-  UsersUserIdPostsRoute: UsersUserIdPostsRoute,
+  BankTransferIndexRoute: BankTransferIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
