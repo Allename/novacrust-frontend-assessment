@@ -63,11 +63,9 @@ All other tabs are visually present but **disabled**, in line with the assessmen
 ├── src/
 │   ├── assets/          # Static assets (icons, images)
 │   ├── components/      # Reusable UI components
-│   ├── context/         # Shared React context providers
 │   ├── lib/             # Utilities, helpers, config
 │   ├── pages/           # Page-level components
 │   ├── routes/          # Route definitions (TanStack Router)
-│   ├── services/        # Mock services / API abstractions
 │   ├── styles/          # Global styles
 ```
 
@@ -79,7 +77,7 @@ This structure is optimized for **scalability and clarity**, keeping UI, logic, 
 
 ### Prerequisites
 
-* Node.js **18+**
+* Node.js **20**
 * yarn
 
 ### Clone the Repository
@@ -104,7 +102,7 @@ yarn dev
 The app will be available at:
 
 ```text
-http://localhost:3000
+http://localhost:3001
 ```
 
 ---
@@ -148,14 +146,6 @@ yarn preview
 * Semantic HTML and accessible Radix primitives via shadcn/ui
 * Keyboard‑friendly components
 * Fully responsive layout (desktop + mobile)
-
----
-
-## 📎 Links
-
-* **Figma Design**: [https://www.figma.com/design/FRfbMHys4JINX4V9qBxgbf/Frontend-Assessment?node-id=0-1](https://www.figma.com/design/FRfbMHys4JINX4V9qBxgbf/Frontend-Assessment?node-id=0-1)
-* **Repository**: *Provided in submission*
-* **Live Demo / Video**: *Provided in submission (Vercel / Netlify / Loom)*
 
 ---
 
